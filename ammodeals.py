@@ -15,8 +15,8 @@ def get_deal(ammo):
     driver.get('https://ammoseek.com/ammo/' + ammo)
     html = driver.page_source
     soup = BeautifulSoup(html, "html.parser")
-    # time.sleep(10)
-    table = soup.find(string="20 Rd- Wolf Military")
+    time.sleep(10)
+    table = soup.find("table", class_="rounded")
     return table
 
 
