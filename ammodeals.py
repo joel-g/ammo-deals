@@ -1,6 +1,7 @@
 import requests
 from selenium import webdriver
 from bs4 import BeautifulSoup
+import time
 
 
 
@@ -14,8 +15,11 @@ def get_deal(ammo):
     driver.get('https://ammoseek.com/ammo/' + ammo)
     html = driver.page_source
     soup = BeautifulSoup(html, "html.parser")
-    table = soup.find("table", class_="main").find("table")
+    # time.sleep(10)
+    table = soup.find(string="20 Rd- Wolf Military")
     return table
 
 
-print(get_deal('223-remington'))
+res = get_deal('223-remington')
+
+print(res)
